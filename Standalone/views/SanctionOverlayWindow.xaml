@@ -1,0 +1,57 @@
+<Window
+	x:Class="tfmStandalone.SanctionOverlayWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	WindowStyle="None"
+	AllowsTransparency="True"
+	Background="#00FFFFFF"
+	ShowInTaskbar="False"
+	SizeToContent="WidthAndHeight"
+	Title="SanctionOverlayWindow" xmlns:tfmstandalone="clr-namespace:tfmStandalone">
+	<Border
+		Background="#66000000"
+		CornerRadius="0,10,10,0">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<Border
+				Width="30"
+				Height="30"
+				Margin="4"
+				Cursor="Hand"
+				Background="#00FFFFFF"
+				VerticalAlignment="Bottom">
+				<UIElement.InputBindings>
+					<MouseBinding
+						MouseAction="LeftClick"
+						Command="{Binding ToggleViewCommand}" />
+				</UIElement.InputBindings>
+				<Image
+					Source="../Resources/Images/grid.png"
+					Width="24"
+					Height="24" />
+			</Border>
+			<DockPanel
+				Grid.Column="1">
+				<FrameworkElement.Style>
+					<Style
+						TargetType="{x:Type DockPanel}">
+						<Style.Triggers>
+							<DataTrigger
+								Binding="{Binding}" />
+						</Style.Triggers>
+					</Style>
+				</FrameworkElement.Style>
+				<TextBox
+					DockPanel.Dock="Top"
+					Width="180"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					Margin="20" />
+				<ItemsControl
+					Height="200"
+					Width="240" />
+			</DockPanel>
+		</Grid>
+	</Border>
+</Window>

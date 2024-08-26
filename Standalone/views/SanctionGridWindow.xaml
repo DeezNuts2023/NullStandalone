@@ -1,0 +1,612 @@
+<Window
+	x:Class="tfmStandalone.SanctionGridWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:tfmStandalone="clr-namespace:tfmStandalone"
+	SnapsToDevicePixels="True"
+	Background="#FF324650"
+	Title="Sanctions"
+	Height="600"
+	Width="800"
+	FontFamily="Arial"
+	FontSize="13">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<Style
+				TargetType="{x:Type Border}"
+				x:Key="SanctionHeaderBorderStyle">
+				<Setter
+					Property="BorderBrush"
+					Value="#FF000000" />
+				<Setter
+					Property="BorderThickness"
+					Value="0,0,1,1" />
+			</Style>
+			<Style
+				TargetType="{x:Type TextBlock}"
+				x:Key="SanctionHeaderTextBlockStyle">
+				<Setter
+					Property="FontSize"
+					Value="16" />
+				<Setter
+					Property="HorizontalAlignment"
+					Value="Center" />
+				<Setter
+					Property="VerticalAlignment"
+					Value="Center" />
+				<Setter
+					Property="Margin"
+					Value="8,6" />
+			</Style>
+			<Style
+				TargetType="{x:Type Border}"
+				x:Key="CellBorderStyle">
+				<Setter
+					Property="BorderBrush"
+					Value="#FF000000" />
+				<Setter
+					Property="BorderThickness"
+					Value="0,0,1,1" />
+				<Setter
+					Property="Height"
+					Value="30" />
+			</Style>
+			<Style
+				TargetType="{x:Type TextBlock}"
+				x:Key="CellBorderTextBlockStyle">
+				<Setter
+					Property="HorizontalAlignment"
+					Value="Center" />
+				<Setter
+					Property="VerticalAlignment"
+					Value="Center" />
+				<Setter
+					Property="Margin"
+					Value="8,4" />
+			</Style>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Grid
+		IsSharedSizeScope="True">
+		<Grid.RowDefinitions>
+			<RowDefinition
+				Height="Auto" />
+			<RowDefinition
+				Height="*" />
+		</Grid.RowDefinitions>
+		<tfmStandalone:HeaderScrollViewer
+			Name="HeaderScrollViewer"
+			Grid.Row="0"
+			VerticalScrollBarVisibility="Disabled"
+			HorizontalScrollBarVisibility="Hidden">
+			<tfmStandalone:HeaderScrollViewer.Header>
+				<Grid
+					Margin="0,0,0,4">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="Auto"
+							SharedSizeGroup="CategoryDescription" />
+						<ColumnDefinition
+							Width="Auto"
+							SharedSizeGroup="Description" />
+					</Grid.ColumnDefinitions>
+					<Grid.RowDefinitions>
+						<RowDefinition />
+						<RowDefinition />
+					</Grid.RowDefinitions>
+					<Border
+						Grid.Column="0"
+						Grid.Row="0"
+						Grid.RowSpan="2"
+						BorderBrush="#FF000000"
+						BorderThickness="0,0,1,1"
+						Background="#FF36393E" />
+					<Border
+						Grid.Column="1"
+						Grid.Row="0"
+						Grid.RowSpan="2"
+						Style="{StaticResource SanctionHeaderBorderStyle}"
+						Background="#FF999999">
+						<TextBlock
+							Style="{StaticResource SanctionHeaderTextBlockStyle}"
+							Text="TYPE" />
+					</Border>
+				</Grid>
+			</tfmStandalone:HeaderScrollViewer.Header>
+			<Grid
+				Margin="0,0,8,4">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="Mute" />
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="Ban" />
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="Other" />
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="Mute" />
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="Ban" />
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="Other" />
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="Mute" />
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="Ban" />
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="Other" />
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="Mute" />
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="Ban" />
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="Other" />
+					<ColumnDefinition
+						Width="Auto"
+						SharedSizeGroup="AdditionInformation" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition />
+					<RowDefinition />
+				</Grid.RowDefinitions>
+				<Border
+					Grid.Column="0"
+					Grid.ColumnSpan="3"
+					Grid.Row="0"
+					Style="{StaticResource SanctionHeaderBorderStyle}"
+					Background="#FFF1C232">
+					<TextBlock
+						Style="{StaticResource SanctionHeaderTextBlockStyle}"
+						Text="SANCTION 1" />
+				</Border>
+				<Border
+					Grid.Column="0"
+					Grid.Row="1"
+					Style="{StaticResource CellBorderStyle}"
+					Background="#FFFFE599">
+					<TextBlock
+						Style="{StaticResource CellBorderTextBlockStyle}"
+						Text="Mute" />
+				</Border>
+				<Border
+					Grid.Column="1"
+					Grid.Row="1"
+					Style="{StaticResource CellBorderStyle}"
+					Background="#FFFFE599">
+					<TextBlock
+						Style="{StaticResource CellBorderTextBlockStyle}"
+						Text="Ban" />
+				</Border>
+				<Border
+					Grid.Column="2"
+					Grid.Row="1"
+					Style="{StaticResource CellBorderStyle}"
+					Background="#FFFFE599">
+					<TextBlock
+						Style="{StaticResource CellBorderTextBlockStyle}"
+						Text="Other" />
+				</Border>
+				<Border
+					Grid.Column="3"
+					Grid.ColumnSpan="3"
+					Grid.Row="0"
+					Style="{StaticResource SanctionHeaderBorderStyle}"
+					Background="#FFE69138">
+					<TextBlock
+						Style="{StaticResource SanctionHeaderTextBlockStyle}"
+						Text="SANCTION 2" />
+				</Border>
+				<Border
+					Grid.Column="3"
+					Grid.Row="1"
+					Style="{StaticResource CellBorderStyle}"
+					Background="#FFF9CB9C">
+					<TextBlock
+						Style="{StaticResource CellBorderTextBlockStyle}"
+						Text="Mute" />
+				</Border>
+				<Border
+					Grid.Column="4"
+					Grid.Row="1"
+					Style="{StaticResource CellBorderStyle}"
+					Background="#FFF9CB9C">
+					<TextBlock
+						Style="{StaticResource CellBorderTextBlockStyle}"
+						Text="Ban" />
+				</Border>
+				<Border
+					Grid.Column="5"
+					Grid.Row="1"
+					Style="{StaticResource CellBorderStyle}"
+					Background="#FFF9CB9C">
+					<TextBlock
+						Style="{StaticResource CellBorderTextBlockStyle}"
+						Text="Other" />
+				</Border>
+				<Border
+					Grid.Column="6"
+					Grid.ColumnSpan="3"
+					Grid.Row="0"
+					Style="{StaticResource SanctionHeaderBorderStyle}"
+					Background="#FFCC0000">
+					<TextBlock
+						Style="{StaticResource SanctionHeaderTextBlockStyle}"
+						Text="SANCTION 3" />
+				</Border>
+				<Border
+					Grid.Column="6"
+					Grid.Row="1"
+					Style="{StaticResource CellBorderStyle}"
+					Background="#FFEA9999">
+					<TextBlock
+						Style="{StaticResource CellBorderTextBlockStyle}"
+						Text="Mute" />
+				</Border>
+				<Border
+					Grid.Column="7"
+					Grid.Row="1"
+					Style="{StaticResource CellBorderStyle}"
+					Background="#FFEA9999">
+					<TextBlock
+						Style="{StaticResource CellBorderTextBlockStyle}"
+						Text="Ban" />
+				</Border>
+				<Border
+					Grid.Column="8"
+					Grid.Row="1"
+					Style="{StaticResource CellBorderStyle}"
+					Background="#FFEA9999">
+					<TextBlock
+						Style="{StaticResource CellBorderTextBlockStyle}"
+						Text="Other" />
+				</Border>
+				<Border
+					Grid.Column="9"
+					Grid.ColumnSpan="3"
+					Grid.Row="0"
+					Style="{StaticResource SanctionHeaderBorderStyle}"
+					Background="#FFA61C00">
+					<TextBlock
+						Style="{StaticResource SanctionHeaderTextBlockStyle}"
+						Text="SANCTION 4" />
+				</Border>
+				<Border
+					Grid.Column="9"
+					Grid.Row="1"
+					Style="{StaticResource CellBorderStyle}"
+					Background="#FFDD7E6B">
+					<TextBlock
+						Style="{StaticResource CellBorderTextBlockStyle}"
+						Text="Mute" />
+				</Border>
+				<Border
+					Grid.Column="10"
+					Grid.Row="1"
+					Style="{StaticResource CellBorderStyle}"
+					Background="#FFDD7E6B">
+					<TextBlock
+						Style="{StaticResource CellBorderTextBlockStyle}"
+						Text="Ban" />
+				</Border>
+				<Border
+					Grid.Column="11"
+					Grid.Row="1"
+					Style="{StaticResource CellBorderStyle}"
+					Background="#FFDD7E6B">
+					<TextBlock
+						Style="{StaticResource CellBorderTextBlockStyle}"
+						Text="Other" />
+				</Border>
+				<Border
+					Grid.Column="12"
+					Grid.Row="0"
+					Grid.RowSpan="2"
+					Style="{StaticResource SanctionHeaderBorderStyle}"
+					Background="#FF999999">
+					<TextBlock
+						Style="{StaticResource SanctionHeaderTextBlockStyle}"
+						Text="INFORMATION" />
+				</Border>
+			</Grid>
+		</tfmStandalone:HeaderScrollViewer>
+		<Grid
+			Row="1">
+			<ScrollViewer
+				Name="ContentScrollViewer"
+				VerticalScrollBarVisibility="Auto"
+				HorizontalScrollBarVisibility="Auto"
+				ScrollChanged="ScrollViewer_OnScrollChanged">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition
+							Width="Auto" />
+						<ColumnDefinition />
+					</Grid.ColumnDefinitions>
+					<Border
+						Background="#00FFFFFF"
+						Width="{Binding ElementName=RowHeaderItems, Path=ActualWidth}" />
+					<ItemsControl
+						Grid.Column="1"
+						ItemsSource="{Binding SanctionCategories}">
+						<ItemsControl.ItemTemplate>
+							<DataTemplate
+								DataType="{x:Type tfmStandalone:SanctionCategoryViewModel}">
+								<Border
+									BorderBrush="#FF000000"
+									BorderThickness="0,1,0,0"
+									Margin="0,0,0,16"
+									HorizontalAlignment="Left">
+									<ItemsControl
+										ItemsSource="{Binding Sanctions}">
+										<ItemsControl.ItemTemplate>
+											<DataTemplate
+												DataType="{x:Type tfmStandalone:SanctionViewModel}">
+												<Grid>
+													<Grid.ColumnDefinitions>
+														<ColumnDefinition
+															Width="Auto"
+															SharedSizeGroup="Mute" />
+														<ColumnDefinition
+															Width="Auto"
+															SharedSizeGroup="Ban" />
+														<ColumnDefinition
+															Width="Auto"
+															SharedSizeGroup="Other" />
+														<ColumnDefinition
+															Width="Auto"
+															SharedSizeGroup="Mute" />
+														<ColumnDefinition
+															Width="Auto"
+															SharedSizeGroup="Ban" />
+														<ColumnDefinition
+															Width="Auto"
+															SharedSizeGroup="Other" />
+														<ColumnDefinition
+															Width="Auto"
+															SharedSizeGroup="Mute" />
+														<ColumnDefinition
+															Width="Auto"
+															SharedSizeGroup="Ban" />
+														<ColumnDefinition
+															Width="Auto"
+															SharedSizeGroup="Other" />
+														<ColumnDefinition
+															Width="Auto"
+															SharedSizeGroup="Mute" />
+														<ColumnDefinition
+															Width="Auto"
+															SharedSizeGroup="Ban" />
+														<ColumnDefinition
+															Width="Auto"
+															SharedSizeGroup="Other" />
+														<ColumnDefinition
+															Width="Auto"
+															SharedSizeGroup="AdditionInformation" />
+													</Grid.ColumnDefinitions>
+													<Border
+														Grid.Column="0"
+														Style="{StaticResource CellBorderStyle}"
+														Background="#FFFFF2CC">
+														<TextBlock
+															Style="{StaticResource CellBorderTextBlockStyle}"
+															Text="{Binding FirstOccurence.Mute}" />
+													</Border>
+													<Border
+														Grid.Column="1"
+														Style="{StaticResource CellBorderStyle}"
+														Background="#FFFFF2CC">
+														<TextBlock
+															Style="{StaticResource CellBorderTextBlockStyle}"
+															Text="{Binding FirstOccurence.Ban}" />
+													</Border>
+													<Border
+														Grid.Column="1"
+														Style="{StaticResource CellBorderStyle}"
+														Background="#FFFFF2CC">
+														<TextBlock
+															Style="{StaticResource CellBorderTextBlockStyle}"
+															Text="{Binding FirstOccurence.Ban}" />
+													</Border>
+													<Border
+														Grid.Column="2"
+														Style="{StaticResource CellBorderStyle}"
+														Background="#FFFFF2CC">
+														<TextBlock
+															Style="{StaticResource CellBorderTextBlockStyle}"
+															Text="{Binding FirstOccurence.Other}" />
+													</Border>
+													<Border
+														Grid.Column="3"
+														Style="{StaticResource CellBorderStyle}"
+														Background="#FFFCE5CD">
+														<TextBlock
+															Style="{StaticResource CellBorderTextBlockStyle}"
+															Text="{Binding SecondOccurence.Mute}" />
+													</Border>
+													<Border
+														Grid.Column="4"
+														Style="{StaticResource CellBorderStyle}"
+														Background="#FFFCE5CD">
+														<TextBlock
+															Style="{StaticResource CellBorderTextBlockStyle}"
+															Text="{Binding SecondOccurence.Ban}" />
+													</Border>
+													<Border
+														Grid.Column="5"
+														Style="{StaticResource CellBorderStyle}"
+														Background="#FFFCE5CD">
+														<TextBlock
+															Style="{StaticResource CellBorderTextBlockStyle}"
+															Text="{Binding SecondOccurence.Other}" />
+													</Border>
+													<Border
+														Grid.Column="6"
+														Style="{StaticResource CellBorderStyle}"
+														Background="#FFF4CCCC">
+														<TextBlock
+															Style="{StaticResource CellBorderTextBlockStyle}"
+															Text="{Binding ThirdOccurence.Mute}" />
+													</Border>
+													<Border
+														Grid.Column="7"
+														Style="{StaticResource CellBorderStyle}"
+														Background="#FFF4CCCC">
+														<TextBlock
+															Style="{StaticResource CellBorderTextBlockStyle}"
+															Text="{Binding ThirdOccurence.Ban}" />
+													</Border>
+													<Border
+														Grid.Column="8"
+														Style="{StaticResource CellBorderStyle}"
+														Background="#FFF4CCCC">
+														<TextBlock
+															Style="{StaticResource CellBorderTextBlockStyle}"
+															Text="{Binding ThirdOccurence.Other}" />
+													</Border>
+													<Border
+														Grid.Column="9"
+														Style="{StaticResource CellBorderStyle}"
+														Background="#FFE6B8AF">
+														<TextBlock
+															Style="{StaticResource CellBorderTextBlockStyle}"
+															Text="{Binding FourthOccurence.Mute}" />
+													</Border>
+													<Border
+														Grid.Column="10"
+														Style="{StaticResource CellBorderStyle}"
+														Background="#FFE6B8AF">
+														<TextBlock
+															Style="{StaticResource CellBorderTextBlockStyle}"
+															Text="{Binding FourthOccurence.Ban}" />
+													</Border>
+													<Border
+														Grid.Column="11"
+														Style="{StaticResource CellBorderStyle}"
+														Background="#FFE6B8AF">
+														<TextBlock
+															Style="{StaticResource CellBorderTextBlockStyle}"
+															Text="{Binding FourthOccurence.Other}" />
+													</Border>
+													<Border
+														Grid.Column="12">
+														<FrameworkElement.Style>
+															<Style
+																BasedOn="{StaticResource CellBorderStyle}"
+																TargetType="{x:Type Border}">
+																<Setter
+																	Property="Background"
+																	Value="#FFFFFFFF" />
+																<Style.Triggers>
+																	<DataTrigger
+																		Value="True"
+																		Binding="{Binding ImportantAdditionalInfo}">
+																		<Setter
+																			Property="Background"
+																			Value="#FFFFFF00" />
+																	</DataTrigger>
+																</Style.Triggers>
+															</Style>
+														</FrameworkElement.Style>
+														<Viewbox
+															Stretch="Uniform"
+															StretchDirection="DownOnly"
+															HorizontalAlignment="Left">
+															<TextBlock
+																Style="{StaticResource CellBorderTextBlockStyle}"
+																Text="{Binding AdditionalInformation}" />
+														</Viewbox>
+													</Border>
+												</Grid>
+											</DataTemplate>
+										</ItemsControl.ItemTemplate>
+									</ItemsControl>
+								</Border>
+							</DataTemplate>
+						</ItemsControl.ItemTemplate>
+					</ItemsControl>
+				</Grid>
+			</ScrollViewer>
+			<ScrollViewer
+				Name="RowHeaderScrollViewer"
+				VerticalScrollBarVisibility="Hidden"
+				HorizontalScrollBarVisibility="Disabled"
+				HorizontalAlignment="Left"
+				Margin="0,0,0,8"
+				ScrollChanged="RowHeaderScrollViewer_OnScrollChanged">
+				<ItemsControl
+					Name="RowHeaderItems"
+					ItemsSource="{Binding SanctionCategories}">
+					<ItemsControl.ItemTemplate>
+						<DataTemplate
+							DataType="{x:Type tfmStandalone:SanctionCategoryViewModel}">
+							<Border
+								BorderBrush="#FF000000"
+								BorderThickness="0,1,0,0"
+								Margin="0,0,0,16">
+								<Grid>
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition
+											Width="Auto"
+											SharedSizeGroup="CategoryDescription" />
+										<ColumnDefinition
+											Width="Auto" />
+									</Grid.ColumnDefinitions>
+									<Border
+										Grid.Column="0"
+										BorderThickness="0,0,1,1"
+										BorderBrush="#FF000000"
+										Background="#FF666666">
+										<TextBlock
+											VerticalAlignment="Center"
+											HorizontalAlignment="Center"
+											Margin="10"
+											Foreground="#FFFFFFFF"
+											FontSize="16"
+											Text="{Binding Description}" />
+									</Border>
+									<ItemsControl
+										Grid.Column="1"
+										ItemsSource="{Binding Sanctions}">
+										<ItemsControl.ItemTemplate>
+											<DataTemplate
+												DataType="{x:Type tfmStandalone:SanctionViewModel}">
+												<Grid>
+													<Grid.ColumnDefinitions>
+														<ColumnDefinition
+															Width="Auto"
+															SharedSizeGroup="Description" />
+													</Grid.ColumnDefinitions>
+													<Border
+														Grid.Column="0"
+														Style="{StaticResource CellBorderStyle}"
+														Background="#FFCCCCCC">
+														<Viewbox
+															Stretch="Uniform"
+															StretchDirection="DownOnly"
+															HorizontalAlignment="Left">
+															<TextBlock
+																Style="{StaticResource CellBorderTextBlockStyle}"
+																Text="{Binding Description}" />
+														</Viewbox>
+													</Border>
+												</Grid>
+											</DataTemplate>
+										</ItemsControl.ItemTemplate>
+									</ItemsControl>
+								</Grid>
+							</Border>
+						</DataTemplate>
+					</ItemsControl.ItemTemplate>
+				</ItemsControl>
+			</ScrollViewer>
+		</Grid>
+	</Grid>
+</Window>

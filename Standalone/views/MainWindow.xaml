@@ -1,0 +1,237 @@
+<Window
+	x:Class="tfmStandalone.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:tfmStandalone="clr-namespace:tfmStandalone" xmlns:system="clr-namespace:System;assembly=mscorlib"
+	Height="663"
+	Width="820"
+	Icon="../Resources/Images/head.ico"
+	Background="#FF6A7495"
+	Closing="OnClosing"
+	Loaded="HandleWindowLoaded"
+	SizeChanged="HandleWindowSizeChanged"
+	LocationChanged="HandleWindowLocationChanged">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibilityConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<FrameworkElement.Style>
+		<Style
+			TargetType="{x:Type Window}">
+			<Setter
+				Property="Window.Title"
+				Value="{Binding Username, StringFormat=Transformice ({0})}" />
+			<Style.Triggers>
+				<DataTrigger
+					Value="{x:Static system:String.Empty}"
+					Binding="{Binding Username}">
+					<Setter
+						Property="Window.Title"
+						Value="Transformice" />
+				</DataTrigger>
+				<DataTrigger
+					Binding="{Binding Username}"
+					Value="{x:Null}">
+					<Setter
+						Property="Window.Title"
+						Value="Transformice" />
+				</DataTrigger>
+			</Style.Triggers>
+		</Style>
+	</FrameworkElement.Style>
+	<DockPanel>
+		<DockPanel
+			Dock="Bottom"
+			Height="20"
+			LastChildFill="False"
+			Background="{DynamicResource MainWindowActionBarBackgroundColor}">
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<Style
+						TargetType="{x:Type Image}"
+						x:Key="{x:Type Image}">
+						<Setter
+							Property="UIElement.Effect"
+							Value="{DynamicResource MainWindowIconDropShadow}" />
+					</Style>
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+			<Image
+				DockPanel.Dock="Left"
+				VerticalAlignment="Center"
+				Stretch="None"
+				Cursor="Hand"
+				Margin="8,0,4,0">
+				<UIElement.InputBindings>
+					<MouseBinding
+						Gesture="LeftClick"
+						Command="{Binding ToggleChatCommand}" />
+				</UIElement.InputBindings>
+				<FrameworkElement.Style>
+					<Style
+						BasedOn="{StaticResource Image}"
+						TargetType="{x:Type Image}">
+						<Setter
+							Property="Source"
+							Value="{DynamicResource MainWindowChatIconSelectedImageSource}" />
+						<Style.Triggers>
+							<DataTrigger
+								Value="False"
+								Binding="{Binding IsChatShowing}">
+								<Setter
+									Property="Source"
+									Value="{DynamicResource MainWindowChatIconUnselectedImageSource}" />
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</FrameworkElement.Style>
+			</Image>
+			<Image
+				DockPanel.Dock="Left"
+				VerticalAlignment="Center"
+				Stretch="None"
+				Cursor="Hand"
+				Margin="4,0">
+				<UIElement.InputBindings>
+					<MouseBinding
+						Gesture="LeftClick"
+						Command="{Binding ToggleModopwetCommand}" />
+				</UIElement.InputBindings>
+				<FrameworkElement.Style>
+					<Style
+						BasedOn="{StaticResource Image}"
+						TargetType="{x:Type Image}">
+						<Setter
+							Property="Source"
+							Value="{DynamicResource MainWindowReportIconCheckedImageSource}" />
+						<Style.Triggers>
+							<DataTrigger
+								Value="False"
+								Binding="{Binding IsModopwetShowing}">
+								<Setter
+									Property="Source"
+									Value="{DynamicResource MainWindowReportIconUncheckedImageSource}" />
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</FrameworkElement.Style>
+			</Image>
+			<Image
+				DockPanel.Dock="Left"
+				VerticalAlignment="Center"
+				Stretch="None"
+				Cursor="Hand"
+				Margin="4,0"
+				Source="{DynamicResource MainWindowProxyIconImageSource}">
+				<UIElement.InputBindings>
+					<MouseBinding
+						Gesture="LeftClick"
+						Command="{Binding ShowVpnFarmingWindowCommand}" />
+					<MouseBinding
+						Gesture="RightClick"
+						Command="{Binding ShowVpnFarmingRoomWindowCommand}" />
+				</UIElement.InputBindings>
+			</Image>
+			<Image
+				DockPanel.Dock="Left"
+				VerticalAlignment="Center"
+				Stretch="None"
+				Cursor="Hand"
+				Margin="4,0"
+				Source="{DynamicResource MainWindowScreenshotIconImageSource}"
+				MouseLeftButtonUp="HandleScreenshotClick" />
+			<Image
+				DockPanel.Dock="Left"
+				VerticalAlignment="Center"
+				Stretch="None"
+				Cursor="Hand"
+				Margin="4,0"
+				Source="{DynamicResource MainWindowGifIconImageSource}"
+				MouseLeftButtonUp="HandleGifClick" />
+			<StackPanel
+				Name="GifRecordingStackPanel"
+				DockPanel.Dock="Left"
+				Orientation="Horizontal"
+				Margin="12,0"
+				Visibility="Collapsed">
+				<TextBlock
+					Text="("
+					VerticalAlignment="Center"
+					Margin="0,0,0,0"
+					Foreground="{DynamicResource MainWindowGifRecordingTextColor}" />
+				<TextBlock
+					Text="Recording"
+					VerticalAlignment="Center"
+					Margin="0,0,0,0"
+					Foreground="{DynamicResource MainWindowGifRecordingTextColor}" />
+				<Image
+					DockPanel.Dock="Left"
+					VerticalAlignment="Center"
+					Stretch="Uniform"
+					Height="12"
+					Cursor="Hand"
+					Margin="4,0,0,0"
+					Source="../Resources/Images/check.png"
+					MouseUp="SaveGifRecordingClick" />
+				<Image
+					DockPanel.Dock="Left"
+					VerticalAlignment="Center"
+					Stretch="Uniform"
+					Height="10"
+					Cursor="Hand"
+					Margin="4,0,0,0"
+					Source="../Resources/Images/x.png"
+					MouseUp="StopGifRecordingClick" />
+				<TextBlock
+					Text=")"
+					VerticalAlignment="Center"
+					Margin="0,0,0,0"
+					Foreground="{DynamicResource MainWindowGifRecordingTextColor}" />
+			</StackPanel>
+			<TextBlock
+				DockPanel.Dock="Right"
+				Text="]"
+				VerticalAlignment="Center"
+				Margin="2,0,8,0"
+				Foreground="{DynamicResource MainWindowUpdateButtonColor}"
+				Visibility="{Binding IsNewVersionAvailable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+			<TextBlock
+				DockPanel.Dock="Right"
+				Text="Update"
+				VerticalAlignment="Center"
+				Foreground="{DynamicResource MainWindowUpdateButtonColor}"
+				Cursor="Hand"
+				TextDecorations="Underline"
+				Visibility="{Binding IsNewVersionAvailable, Converter={StaticResource BooleanToVisibilityConverter}}">
+				<UIElement.InputBindings>
+					<MouseBinding
+						MouseAction="LeftClick"
+						Command="{Binding UpdateCommand}" />
+				</UIElement.InputBindings>
+			</TextBlock>
+			<TextBlock
+				DockPanel.Dock="Right"
+				Text="["
+				VerticalAlignment="Center"
+				Margin="0,0,2,0"
+				Foreground="{DynamicResource MainWindowUpdateButtonColor}"
+				Visibility="{Binding IsNewVersionAvailable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+			<TextBlock
+				DockPanel.Dock="Right"
+				VerticalAlignment="Center"
+				Margin="0,0,8,0"
+				Foreground="{DynamicResource MainWindowNewVersionTextColor}"
+				FontWeight="Bold"
+				Text="{Binding NewVersion, StringFormat=New Version Available (v{0:0.0})}"
+				Visibility="{Binding IsNewVersionAvailable, Converter={StaticResource BooleanToVisibilityConverter}}" />
+			<TextBlock
+				DockPanel.Dock="Right"
+				VerticalAlignment="Center"
+				Margin="0,0,8,0"
+				Foreground="{DynamicResource MainWindowVersionTextColor}"
+				Text="{Binding Version, StringFormat=v{0:0.0}}" />
+		</DockPanel>
+		<tfmStandalone:FlashPlayer
+			Name="FlashPlayer"
+			IsTabStop="False" />
+	</DockPanel>
+</Window>

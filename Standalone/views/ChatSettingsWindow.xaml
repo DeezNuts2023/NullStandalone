@@ -1,0 +1,383 @@
+<local:PinnableWindow
+	x:Class="tfmStandalone.ChatSettingsWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:tfmStandalone"
+	Name="Window"
+	Style="{StaticResource PinnableWindowStyle}"
+	Title="Chat Settings"
+	Height="400"
+	Width="620"
+	Topmost="True"
+	CanPin="False"
+	CanMinimize="False"
+	CanMaximize="False"
+	CanClose="False">
+	<DockPanel>
+		<DockPanel
+			Dock="Bottom"
+			Margin="10,0,10,4"
+			LastChildFill="False">
+			<ComboBox
+				DockPanel.Dock="Left"
+				SelectedItem="{Binding FontFamily}"
+				ItemsSource="{Binding Source={x:Static Fonts.SystemFontFamilies}}">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate
+						DataType="{x:Type FontFamily}">
+						<TextBlock
+							VerticalAlignment="Center"
+							FontSize="14"
+							Text="{Binding Source}"
+							FontFamily="{Binding}" />
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ComboBox>
+			<ComboBox
+				DockPanel.Dock="Left"
+				SelectedItem="{Binding FontSize}"
+				ItemsSource="{Binding FontSizes}" />
+			<Button
+				DockPanel.Dock="Right"
+				Width="50"
+				Height="26"
+				Content="Save"
+				Command="{Binding SaveCommand}" />
+		</DockPanel>
+		<Grid>
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<Style
+						TargetType="{x:Type Image}"
+						x:Key="BannerStyle">
+						<Setter
+							Property="Margin"
+							Value="0,10" />
+						<Setter
+							Property="Stretch"
+							Value="None" />
+						<Setter
+							Property="HorizontalAlignment"
+							Value="Center" />
+						<Setter
+							Property="VerticalAlignment"
+							Value="Top" />
+					</Style>
+					<Style
+						TargetType="{x:Type StackPanel}"
+						x:Key="{x:Type StackPanel}">
+						<Setter
+							Property="StackPanel.Orientation"
+							Value="Horizontal" />
+						<Setter
+							Property="HorizontalAlignment"
+							Value="Center" />
+						<Setter
+							Property="VerticalAlignment"
+							Value="Top" />
+						<Setter
+							Property="Margin"
+							Value="0,42,0,0" />
+					</Style>
+					<Style
+						TargetType="{x:Type CheckBox}"
+						BasedOn="{StaticResource PushButtonStyle}"
+						x:Key="{x:Type CheckBox}">
+						<Setter
+							Property="Width"
+							Value="30" />
+						<Setter
+							Property="Height"
+							Value="30" />
+						<Setter
+							Property="Margin"
+							Value="2,0" />
+						<Setter
+							Property="HorizontalAlignment"
+							Value="Left" />
+						<Setter
+							Property="VerticalAlignment"
+							Value="Top" />
+					</Style>
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+			<Grid.RowDefinitions>
+				<RowDefinition />
+				<RowDefinition />
+				<RowDefinition />
+			</Grid.RowDefinitions>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition />
+			</Grid.ColumnDefinitions>
+			<Image
+				Grid.Row="0"
+				Grid.Column="0"
+				Style="{StaticResource BannerStyle}"
+				Source="../Resources/Images/banner_modo.png" />
+			<StackPanel
+				Grid.Row="0"
+				Grid.Column="0">
+				<CheckBox
+					IsChecked="{Binding FilterModoChat}">
+					<Image
+						Source="{DynamicResource FilterImageSource}"
+						Width="12"
+						Height="12" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding AlertModoChat}">
+					<Image
+						Source="{DynamicResource NotificationImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding LogModoChat}">
+					<Image
+						Source="{DynamicResource LogImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+			</StackPanel>
+			<Image
+				Grid.Row="1"
+				Grid.Column="0"
+				Style="{StaticResource BannerStyle}"
+				Source="../Resources/Images/banner_arbitre.png" />
+			<StackPanel
+				Grid.Row="1"
+				Grid.Column="0">
+				<CheckBox
+					IsChecked="{Binding FilterArbChat}">
+					<Image
+						Source="{DynamicResource FilterImageSource}"
+						Width="12"
+						Height="12" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding AlertArbChat}">
+					<Image
+						Source="{DynamicResource NotificationImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding LogArbChat}">
+					<Image
+						Source="{DynamicResource LogImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+			</StackPanel>
+			<Image
+				Grid.Row="2"
+				Grid.Column="0"
+				Style="{StaticResource BannerStyle}"
+				Source="../Resources/Images/banner_serveur.png" />
+			<StackPanel
+				Grid.Row="2"
+				Grid.Column="0">
+				<CheckBox
+					IsChecked="{Binding FilterServeurMessages}">
+					<Image
+						Source="{DynamicResource FilterImageSource}"
+						Width="12"
+						Height="12" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding AlertServeurMessages}">
+					<Image
+						Source="{DynamicResource NotificationImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding LogServeurMessages}">
+					<Image
+						Source="{DynamicResource LogImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+			</StackPanel>
+			<Image
+				Grid.Row="0"
+				Grid.Column="1"
+				Style="{StaticResource BannerStyle}"
+				Source="../Resources/Images/banner_mapcrew.png" />
+			<StackPanel
+				Grid.Row="0"
+				Grid.Column="1">
+				<CheckBox
+					IsChecked="{Binding FilterMapCrewChat}">
+					<Image
+						Source="{DynamicResource FilterImageSource}"
+						Width="12"
+						Height="12" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding AlertMapCrewChat}">
+					<Image
+						Source="{DynamicResource NotificationImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding LogMapCrewChat}">
+					<Image
+						Source="{DynamicResource LogImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+			</StackPanel>
+			<Image
+				Grid.Row="1"
+				Grid.Column="1"
+				Style="{StaticResource BannerStyle}"
+				Source="../Resources/Images/banner_luateam.png" />
+			<StackPanel
+				Grid.Row="1"
+				Grid.Column="1">
+				<CheckBox
+					IsChecked="{Binding FilterLuaTeamChat}">
+					<Image
+						Source="{DynamicResource FilterImageSource}"
+						Width="12"
+						Height="12" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding AlertLuaTeamChat}">
+					<Image
+						Source="{DynamicResource NotificationImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding LogLuaTeamChat}">
+					<Image
+						Source="{DynamicResource LogImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+			</StackPanel>
+			<Image
+				Grid.Row="2"
+				Grid.Column="1"
+				Style="{StaticResource BannerStyle}"
+				Source="../Resources/Images/banner_funcorp.png" />
+			<StackPanel
+				Grid.Row="2"
+				Grid.Column="1">
+				<CheckBox
+					IsChecked="{Binding FilterFunCorpChat}">
+					<Image
+						Source="{DynamicResource FilterImageSource}"
+						Width="12"
+						Height="12" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding AlertFunCorpChat}">
+					<Image
+						Source="{DynamicResource NotificationImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding LogFunCorpChat}">
+					<Image
+						Source="{DynamicResource LogImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+			</StackPanel>
+			<Image
+				Grid.Row="0"
+				Grid.Column="2"
+				Style="{StaticResource BannerStyle}"
+				Source="../Resources/Images/banner_fashionsquad.png" />
+			<StackPanel
+				Grid.Row="0"
+				Grid.Column="2">
+				<CheckBox
+					IsChecked="{Binding FilterFashionSquadChat}">
+					<Image
+						Source="{DynamicResource FilterImageSource}"
+						Width="12"
+						Height="12" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding AlertFashionSquadChat}">
+					<Image
+						Source="{DynamicResource NotificationImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding LogFashionSquadChat}">
+					<Image
+						Source="{DynamicResource LogImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+			</StackPanel>
+			<Image
+				Grid.Row="1"
+				Grid.Column="2"
+				Style="{StaticResource BannerStyle}"
+				Source="../Resources/Images/banner_tribe.png" />
+			<StackPanel
+				Grid.Row="1"
+				Grid.Column="2">
+				<CheckBox
+					IsChecked="{Binding FilterTribeChat}">
+					<Image
+						Source="{DynamicResource FilterImageSource}"
+						Width="12"
+						Height="12" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding AlertTribeChat}">
+					<Image
+						Source="{DynamicResource NotificationImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding LogTribeChat}">
+					<Image
+						Source="{DynamicResource LogImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+			</StackPanel>
+			<Image
+				Grid.Row="2"
+				Grid.Column="2"
+				Style="{StaticResource BannerStyle}"
+				Source="../Resources/Images/banner_whispers.png" />
+			<StackPanel
+				Grid.Row="2"
+				Grid.Column="2">
+				<CheckBox
+					IsChecked="{Binding FilterWhispers}">
+					<Image
+						Source="{DynamicResource FilterImageSource}"
+						Width="12"
+						Height="12" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding AlertWhispers}">
+					<Image
+						Source="{DynamicResource NotificationImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+				<CheckBox
+					IsChecked="{Binding LogWhispers}">
+					<Image
+						Source="{DynamicResource LogImageSource}"
+						Width="16"
+						Height="16" />
+				</CheckBox>
+			</StackPanel>
+		</Grid>
+	</DockPanel>
+</local:PinnableWindow>

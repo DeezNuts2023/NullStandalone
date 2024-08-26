@@ -1,0 +1,58 @@
+<local:PinnableWindow
+	x:Class="tfmStandalone.VpnFarmingWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:tfmStandalone"
+	Style="{StaticResource PinnableWindowStyle}"
+	Title="VPN Farming"
+	Height="320"
+	Width="420"
+	CanPin="False"
+	CanMinimize="False"
+	CanMaximize="False"
+	Topmost="True"
+	ShowInTaskbar="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition
+				Height="Auto" />
+            <RowDefinition
+				Height="Auto" />
+            <RowDefinition
+				Height="Auto" />
+            <RowDefinition />
+            <RowDefinition
+				Height="30" />
+        </Grid.RowDefinitions>
+        <TextBlock
+			Text="Names"
+			Margin="10,6,10,0"
+			Foreground="{StaticResource DefaultForegroundColorBrush}" />
+        <TextBox
+			Grid.Row="1"
+			Margin="10,6,10,4"
+			Padding="3"
+			MaxLines="1"
+			TextWrapping="NoWrap"
+			Text="{Binding Names, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock
+			Grid.Row="2"
+			Text="/lsroom results"
+			Margin="10,6,10,0"
+			Foreground="{StaticResource DefaultForegroundColorBrush}" />
+        <TextBox
+			Grid.Row="3"
+			Margin="10,6,10,4"
+			Padding="3"
+			TextWrapping="Wrap"
+			AcceptsReturn="True"
+			ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+			ScrollViewer.VerticalScrollBarVisibility="Auto"
+			Text="{Binding LsRoomResult, UpdateSourceTrigger=PropertyChanged}" />
+        <Button
+			Grid.Row="4"
+			Width="50"
+			Height="26"
+			HorizontalAlignment="Right"
+			Margin="0,0,10,4"
+			Content="Ban"
+			Command="{Binding BanCommand}" />
+    </Grid>
+</local:PinnableWindow>
