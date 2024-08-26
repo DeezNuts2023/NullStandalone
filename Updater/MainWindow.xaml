@@ -1,0 +1,559 @@
+<Window
+	x:Class="Updater.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:update="clr-namespace:Updater" xmlns:system="clr-namespace:System;assembly=mscorlib"
+	TextOptions.TextFormattingMode="Display"
+	Icon="Images/head.ico"
+	WindowStartupLocation="CenterScreen"
+	Title="Mod Client Update"
+	Height="360"
+	Width="530"
+	Background="#FFA1BFCC"
+	Foreground="#FFFFFFFF"
+	FontFamily="Verdana"
+	FontSize="11"
+	ResizeMode="NoResize">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<BooleanToVisibilityConverter
+				x:Key="BooleanToVisibilityConverter" />
+			<update:EnumToVisibilityConverter
+				x:Key="EnumToVisibilityConverter" />
+			<Storyboard
+				x:Key="RotateCheeseStoryboard">
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="AnimatedRotateTransform"
+					Storyboard.TargetProperty="Angle"
+					FillBehavior="Stop">
+					<SplineDoubleKeyFrame
+						KeyTime="00:00:00"
+						Value="0" />
+					<SplineDoubleKeyFrame
+						KeyTime="00:00:00.7"
+						Value="360" />
+					<SplineDoubleKeyFrame
+						KeyTime="00:00:01.2"
+						Value="360" />
+				</DoubleAnimationUsingKeyFrames>
+				<DoubleAnimationUsingKeyFrames
+					Storyboard.TargetName="CheeseDropShadowEffect"
+					Storyboard.TargetProperty="Direction"
+					FillBehavior="Stop">
+					<SplineDoubleKeyFrame
+						KeyTime="00:00:00"
+						Value="315" />
+					<SplineDoubleKeyFrame
+						KeyTime="00:00:00.7"
+						Value="675" />
+					<SplineDoubleKeyFrame
+						KeyTime="00:00:01.2"
+						Value="675" />
+				</DoubleAnimationUsingKeyFrames>
+			</Storyboard>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<DockPanel>
+		<DockPanel
+			Dock="Bottom"
+			Height="50"
+			LastChildFill="False"
+			Background="#FF324650">
+			<Button
+				DockPanel.Dock="Right"
+				VerticalAlignment="Center"
+				Width="103"
+				Height="32"
+				Margin="10,0"
+				Content="Cancel"
+				Click="CancelButtonOnClick" />
+			<Button
+				DockPanel.Dock="Right"
+				VerticalAlignment="Center"
+				Width="103"
+				Height="32"
+				Margin="5,0,10,0"
+				Command="{Binding NextCommand}"
+				IsEnabled="{Binding CanNext}">
+				<DockPanel>
+					<Image
+						DockPanel.Dock="Left"
+						Stretch="Uniform"
+						Height="16"
+						Margin="2,0"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Center">
+						<FrameworkElement.Style>
+							<Style
+								TargetType="{x:Type Image}">
+								<Setter
+									Property="Source"
+									Value="Images/download.png" />
+								<Style.Triggers>
+									<MultiDataTrigger>
+										<MultiDataTrigger.Conditions>
+											<Condition
+												Value="{x:Static update:UpdateState.CheckingForTransformiceExe}"
+												Binding="{Binding UpdateState}" />
+											<Condition
+												Value="False"
+												Binding="{Binding CanNext}" />
+										</MultiDataTrigger.Conditions>
+										<Setter
+											Property="Source"
+											Value="Images/download_disabled.png" />
+									</MultiDataTrigger>
+									<DataTrigger
+										Value="{x:Static update:UpdateState.Downloading}"
+										Binding="{Binding UpdateState}">
+										<Setter
+											Property="Source"
+											Value="Images/update.png" />
+									</DataTrigger>
+									<MultiDataTrigger>
+										<MultiDataTrigger.Conditions>
+											<Condition
+												Value="{x:Static update:UpdateState.Downloading}"
+												Binding="{Binding UpdateState}" />
+											<Condition
+												Value="False"
+												Binding="{Binding CanNext}" />
+										</MultiDataTrigger.Conditions>
+										<Setter
+											Property="Source"
+											Value="Images/update_disabled.png" />
+									</MultiDataTrigger>
+									<DataTrigger
+										Value="{x:Static update:UpdateState.Updating}"
+										Binding="{Binding UpdateState}">
+										<Setter
+											Property="Visibility"
+											Value="Collapsed" />
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+					</Image>
+					<TextBlock
+						VerticalAlignment="Center">
+						<FrameworkElement.Style>
+							<Style
+								TargetType="{x:Type TextBlock}">
+								<Setter
+									Property="Text"
+									Value="Download &gt;" />
+								<Style.Triggers>
+									<DataTrigger
+										Value="{x:Static update:UpdateState.Downloading}"
+										Binding="{Binding UpdateState}">
+										<Setter
+											Property="Text"
+											Value="Update &gt;" />
+									</DataTrigger>
+									<DataTrigger
+										Value="{x:Static update:UpdateState.Updating}"
+										Binding="{Binding UpdateState}">
+										<Setter
+											Property="Text"
+											Value="Finish" />
+									</DataTrigger>
+									<DataTrigger
+										Value="False"
+										Binding="{Binding CanNext}">
+										<Setter
+											Property="Foreground"
+											Value="#FF838383" />
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+					</TextBlock>
+				</DockPanel>
+			</Button>
+			<Button
+				DockPanel.Dock="Right"
+				VerticalAlignment="Center"
+				Width="103"
+				Height="32"
+				Margin="0"
+				Content="&lt; Back"
+				Command="{Binding BackCommand}"
+				IsEnabled="{Binding CanBack}" />
+		</DockPanel>
+		<Grid
+			DockPanel.Dock="Left"
+			Background="#FF547382">
+			<Image
+				DockPanel.Dock="Left"
+				Source="Images/cheese.png"
+				Stretch="Uniform"
+				Height="100"
+				RenderTransformOrigin="0.5,0.5"
+				VerticalAlignment="Center"
+				Margin="30">
+				<UIElement.RenderTransform>
+					<RotateTransform
+						x:Name="AnimatedRotateTransform"
+						Angle="0" />
+				</UIElement.RenderTransform>
+				<UIElement.Effect>
+					<DropShadowEffect
+						x:Name="CheeseDropShadowEffect"
+						BlurRadius="5"
+						ShadowDepth="4"
+						Opacity="1" />
+				</UIElement.Effect>
+			</Image>
+		</Grid>
+		<Grid>
+			<FrameworkElement.Resources>
+				<ResourceDictionary>
+					<Style
+						TargetType="{x:Type TextBlock}"
+						x:Key="{x:Type TextBlock}">
+						<Setter
+							Property="HorizontalAlignment"
+							Value="Left" />
+						<Setter
+							Property="VerticalAlignment"
+							Value="Top" />
+						<Setter
+							Property="UIElement.Effect">
+							<Setter.Value>
+								<DropShadowEffect
+									BlurRadius="10"
+									ShadowDepth="0"
+									Opacity="0.2" />
+							</Setter.Value>
+						</Setter>
+					</Style>
+				</ResourceDictionary>
+			</FrameworkElement.Resources>
+			<Grid
+				Visibility="{Binding UpdateState, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter={x:Static update:UpdateState.CheckingForTransformiceExe}}">
+				<TextBlock
+					Text="Location of Mod Client Executable"
+					Margin="12,20,30,0"
+					FontWeight="Bold" />
+				<TextBlock
+					Margin="20,40,10,0"
+					TextWrapping="Wrap"
+					Text="{Binding ExeLocation}" />
+				<TextBlock
+					Text="Executable not found"
+					TextWrapping="Wrap"
+					FontWeight="Bold"
+					Foreground="#FFFF3838"
+					VerticalAlignment="Bottom"
+					Margin="40,16"
+					Effect="{x:Null}">
+					<FrameworkElement.Style>
+						<Style
+							TargetType="{x:Type TextBlock}">
+							<Style.Triggers>
+								<DataTrigger
+									Value="True"
+									Binding="{Binding CanNext}">
+									<Setter
+										Property="Visibility"
+										Value=" Collapsed" />
+								</DataTrigger>
+							</Style.Triggers>
+						</Style>
+					</FrameworkElement.Style>
+				</TextBlock>
+				<Button
+					Content="Browse..."
+					VerticalAlignment="Bottom"
+					HorizontalAlignment="Right"
+					Width="103"
+					Height="32"
+					Margin="10"
+					Click="BrowseButtonOnClick" />
+			</Grid>
+			<Grid
+				Visibility="{Binding UpdateState, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter={x:Static update:UpdateState.Downloading}}">
+				<TextBlock
+					Text="Downloading..."
+					Margin="12,20,30,0"
+					FontWeight="Bold" />
+				<TextBlock
+					Margin="20,40,10,0"
+					TextWrapping="Wrap"
+					Text="{Binding Progress, StringFormat={}{0}%}" />
+				<TextBlock
+					Text="Performing MD5 Hash Check..."
+					Margin="12,65,30,0"
+					FontWeight="Bold">
+					<FrameworkElement.Style>
+						<Style
+							TargetType="{x:Type TextBlock}">
+							<Setter
+								Property="Visibility"
+								Value="Collapsed" />
+							<Style.Triggers>
+								<MultiDataTrigger>
+									<MultiDataTrigger.Conditions>
+										<Condition
+											Value="False"
+											Binding="{Binding Downloading}" />
+										<Condition
+											Value="True"
+											Binding="{Binding DownloadSuccessful}" />
+									</MultiDataTrigger.Conditions>
+									<Setter
+										Property="Visibility"
+										Value="Visible" />
+								</MultiDataTrigger>
+							</Style.Triggers>
+						</Style>
+					</FrameworkElement.Style>
+				</TextBlock>
+				<TextBlock
+					Text="Hash check succeeded"
+					Margin="20,85,10,0"
+					TextWrapping="Wrap"
+					Visibility="{Binding MD5HashCheckSuccessful, Converter={StaticResource BooleanToVisibilityConverter}}" />
+				<TextBlock
+					Text="Download Failed"
+					TextWrapping="Wrap"
+					FontWeight="Bold"
+					Foreground="#FFFF3838"
+					VerticalAlignment="Bottom"
+					Margin="40,16"
+					Effect="{x:Null}">
+					<FrameworkElement.Style>
+						<Style
+							TargetType="{x:Type TextBlock}">
+							<Setter
+								Property="Visibility"
+								Value="Collapsed" />
+							<Style.Triggers>
+								<MultiDataTrigger>
+									<MultiDataTrigger.Conditions>
+										<Condition
+											Value="False"
+											Binding="{Binding Downloading}" />
+										<Condition
+											Value="False"
+											Binding="{Binding DownloadSuccessful}" />
+									</MultiDataTrigger.Conditions>
+									<Setter
+										Property="Visibility"
+										Value="Visible" />
+								</MultiDataTrigger>
+							</Style.Triggers>
+						</Style>
+					</FrameworkElement.Style>
+				</TextBlock>
+				<TextBlock
+					Text="MD5 Hash Check Failed"
+					TextWrapping="Wrap"
+					FontWeight="Bold"
+					Foreground="#FFFF3838"
+					VerticalAlignment="Bottom"
+					Margin="40,16"
+					Effect="{x:Null}">
+					<FrameworkElement.Style>
+						<Style
+							TargetType="{x:Type TextBlock}">
+							<Setter
+								Property="Visibility"
+								Value=" Collapsed" />
+							<Style.Triggers>
+								<MultiDataTrigger>
+									<MultiDataTrigger.Conditions>
+										<Condition
+											Value="True"
+											Binding="{Binding MD5HashCheckPerformed}" />
+										<Condition
+											Value="False"
+											Binding="{Binding MD5HashCheckSuccessful}" />
+									</MultiDataTrigger.Conditions>
+									<Setter
+										Property="Visibility"
+										Value="Visible" />
+								</MultiDataTrigger>
+							</Style.Triggers>
+						</Style>
+					</FrameworkElement.Style>
+				</TextBlock>
+				<Button
+					Content="Redownload"
+					VerticalAlignment="Bottom"
+					HorizontalAlignment="Right"
+					Width="103"
+					Height="32"
+					Margin="10"
+					Command="{Binding RedownloadCommand}">
+					<FrameworkElement.Style>
+						<Style
+							TargetType="{x:Type Button}">
+							<Setter
+								Property="Visibility"
+								Value="Collapsed" />
+							<Style.Triggers>
+								<MultiDataTrigger>
+									<MultiDataTrigger.Conditions>
+										<Condition
+											Value="False"
+											Binding="{Binding Downloading}" />
+										<Condition
+											Value="False"
+											Binding="{Binding DownloadSuccessful}" />
+									</MultiDataTrigger.Conditions>
+									<Setter
+										Property="Visibility"
+										Value="Visible" />
+								</MultiDataTrigger>
+								<MultiDataTrigger>
+									<MultiDataTrigger.Conditions>
+										<Condition
+											Value="True"
+											Binding="{Binding MD5HashCheckPerformed}" />
+										<Condition
+											Value="False"
+											Binding="{Binding MD5HashCheckSuccessful}" />
+									</MultiDataTrigger.Conditions>
+									<Setter
+										Property="Visibility"
+										Value="Visible" />
+								</MultiDataTrigger>
+							</Style.Triggers>
+						</Style>
+					</FrameworkElement.Style>
+				</Button>
+			</Grid>
+			<Grid
+				Visibility="{Binding UpdateState, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter={x:Static update:UpdateState.Updating}}">
+				<StackPanel
+					Margin="12,20,10,0">
+					<TextBlock
+						Text="Files Being Updated"
+						FontWeight="Bold">
+						<FrameworkElement.Style>
+							<Style
+								TargetType="{x:Type TextBlock}">
+								<Style.Triggers>
+									<DataTrigger
+										Value="0"
+										Binding="{Binding ReplacedFiles.Count}">
+										<Setter
+											Property="Visibility"
+											Value="Collapsed" />
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+					</TextBlock>
+					<ScrollViewer
+						HorizontalScrollBarVisibility="Disabled"
+						VerticalScrollBarVisibility="Auto"
+						Margin="0,4,0,10">
+						<FrameworkElement.Style>
+							<Style
+								TargetType="{x:Type ScrollViewer}">
+								<Setter
+									Property="MaxHeight"
+									Value="80" />
+								<Style.Triggers>
+									<DataTrigger
+										Value="0"
+										Binding="{Binding ReplacedFiles.Count}">
+										<Setter
+											Property="Visibility"
+											Value="Collapsed" />
+									</DataTrigger>
+									<DataTrigger
+										Value="0"
+										Binding="{Binding AddedFiles.Count}">
+										<Setter
+											Property="MaxHeight"
+											Value="187" />
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+						<ItemsControl
+							ItemsSource="{Binding ReplacedFiles}">
+							<ItemsControl.ItemTemplate>
+								<DataTemplate
+									DataType="{x:Type system:String}">
+									<TextBlock
+										Margin="8,0,0,0"
+										Text="{Binding}"
+										ToolTip="{Binding}" />
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+					</ScrollViewer>
+					<TextBlock
+						Text="Files Being Added"
+						FontWeight="Bold">
+						<FrameworkElement.Style>
+							<Style
+								TargetType="{x:Type TextBlock}">
+								<Style.Triggers>
+									<DataTrigger
+										Value="0"
+										Binding="{Binding AddedFiles.Count}">
+										<Setter
+											Property="Visibility"
+											Value="Collapsed" />
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+					</TextBlock>
+					<ScrollViewer
+						HorizontalScrollBarVisibility="Disabled"
+						VerticalScrollBarVisibility="Auto"
+						Margin="0,4,0,0">
+						<FrameworkElement.Style>
+							<Style
+								TargetType="{x:Type ScrollViewer}">
+								<Setter
+									Property="MaxHeight"
+									Value="80" />
+								<Style.Triggers>
+									<DataTrigger
+										Value="0"
+										Binding="{Binding AddedFiles.Count}">
+										<Setter
+											Property="Visibility"
+											Value="Collapsed" />
+									</DataTrigger>
+									<DataTrigger
+										Value="0"
+										Binding="{Binding ReplacedFiles.Count}">
+										<Setter
+											Property="MaxHeight"
+											Value="187" />
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</FrameworkElement.Style>
+						<ItemsControl
+							ItemsSource="{Binding AddedFiles}">
+							<ItemsControl.ItemTemplate>
+								<DataTemplate
+									DataType="{x:Type system:String}">
+									<TextBlock
+										Margin="8,0,0,0"
+										Text="{Binding}"
+										ToolTip="{Binding}" />
+								</DataTemplate>
+							</ItemsControl.ItemTemplate>
+						</ItemsControl>
+					</ScrollViewer>
+				</StackPanel>
+				<CheckBox
+					VerticalAlignment="Bottom"
+					Margin="40,15"
+					IsChecked="{Binding BackupFiles, Mode=TwoWay}">
+					<TextBlock
+						Text="Back Up Updated Files"
+						Margin="0,2,0,0"
+						Foreground="#FFFFFFFF" />
+				</CheckBox>
+			</Grid>
+		</Grid>
+	</DockPanel>
+</Window>
