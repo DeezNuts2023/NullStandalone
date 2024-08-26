@@ -1,0 +1,576 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:system="clr-namespace:System;assembly=mscorlib">
+	<SolidColorBrush
+		Color="#FF2F7FCC"
+		x:Key="Tfm_BV" />
+	<SolidColorBrush
+		Color="#FFCB546B"
+		x:Key="Tfm_R" />
+	<SolidColorBrush
+		Color="#FF6C77C1"
+		x:Key="Tfm_BL" />
+	<SolidColorBrush
+		Color="#FFBABD2F"
+		x:Key="Tfm_J" />
+	<SolidColorBrush
+		Color="#FFC2C2DA"
+		x:Key="Tfm_N" />
+	<SolidColorBrush
+		Color="#FF9292AA"
+		x:Key="Tfm_N2" />
+	<SolidColorBrush
+		Color="#FF60608F"
+		x:Key="Tfm_G" />
+	<SolidColorBrush
+		Color="#FF009D9D"
+		x:Key="Tfm_V" />
+	<SolidColorBrush
+		Color="#FFFFD991"
+		x:Key="Tfm_D" />
+	<SolidColorBrush
+		Color="#FFF79337"
+		x:Key="Tfm_O" />
+	<SolidColorBrush
+		Color="#FF2ECF73"
+		x:Key="Tfm_VP" />
+	<SolidColorBrush
+		Color="#FFC53DFF"
+		x:Key="Tfm_VI" />
+	<SolidColorBrush
+		Color="#FFED67EA"
+		x:Key="Tfm_ROSE" />
+	<SolidColorBrush
+		Color="#FF98E2EB"
+		x:Key="Tfm_CH" />
+	<SolidColorBrush
+		Color="#FFFEB1FC"
+		x:Key="Tfm_CH2" />
+	<SolidColorBrush
+		Color="#FFA4CF9E"
+		x:Key="Tfm_T" />
+	<SolidColorBrush
+		Color="#FF2EBA7E"
+		x:Key="Tfm_PT" />
+	<SolidColorBrush
+		Color="#FFCAA4CF"
+		x:Key="Tfm_S" />
+	<SolidColorBrush
+		Color="#FFF1C4F6"
+		x:Key="Tfm_PS" />
+	<SolidColorBrush
+		Color="#FFF0A78E"
+		x:Key="Tfm_CEP" />
+	<SolidColorBrush
+		Color="#FFE88F4F"
+		x:Key="Tfm_CE" />
+	<SolidColorBrush
+		Color="#FFEFCE8F"
+		x:Key="Tfm_CS" />
+	<SolidColorBrush
+		Color="#FFFF8547"
+		x:Key="Tfm_FC" />
+	<SolidColorBrush
+		Color="#FFC2C2DA"
+		x:Key="DefaultForegroundColorBrush" />
+	<FontFamily
+		x:Key="DefaultFontFamily">Arial</FontFamily>
+	<system:Double
+		x:Key="DefaultFontSize">12</system:Double>
+	<CornerRadius
+		x:Key="WindowCornerRadius">14</CornerRadius>
+	<SolidColorBrush
+		Color="#FF324650"
+		x:Key="WindowBackgroundColor" />
+	<SolidColorBrush
+		Color="#FF5D7D90"
+		x:Key="WindowOuterBorderColor" />
+	<Thickness
+		x:Key="WindowOuterBorderThickness">1,1,0,0</Thickness>
+	<SolidColorBrush
+		Color="#FF11171C"
+		x:Key="WindowInnerBorderColor" />
+	<Thickness
+		x:Key="WindowInnerBorderThickness">0,0,1,1</Thickness>
+	<Thickness
+		x:Key="WindowHeaderMargin">10,0</Thickness>
+	<SolidColorBrush
+		Color="#FF11171C"
+		x:Key="WindowHeaderOuterBorderColor" />
+	<Thickness
+		x:Key="WindowHeaderOuterBorderThickness">0,0,0,1</Thickness>
+	<SolidColorBrush
+		Color="#FF5D7D90"
+		x:Key="WindowHeaderInnerBorderColor" />
+	<Thickness
+		x:Key="WindowHeaderInnerBorderThickness">0,0,0,1</Thickness>
+	<FontFamily
+		x:Key="WindowTitleFontFamily">Arial</FontFamily>
+	<system:Double
+		x:Key="WindowTitleFontSize">12</system:Double>
+	<SolidColorBrush
+		Color="#FF212D33"
+		x:Key="WindowHeaderButtonHoverBackgroundColor" />
+	<SolidColorBrush
+		Color="#FF6A8FA2"
+		x:Key="WindowHeaderButtonPenColor" />
+	<SolidColorBrush
+		Color="#FF309EFF"
+		x:Key="HyperlinkButtonForegroundColor" />
+	<SolidColorBrush
+		Color="#FF77BFFF"
+		x:Key="HyperlinkButtonForegroundHoverColor" />
+	<FontFamily
+		x:Key="HyperlinkButtonFontFamily">Arial</FontFamily>
+	<system:Double
+		x:Key="HyperlinkButtonFontSize">12</system:Double>
+	<SolidColorBrush
+		Color="#FFC2C2DA"
+		x:Key="ButtonForegroundColor" />
+	<SolidColorBrush
+		Color="#FF012345"
+		x:Key="ButtonForegroundHoverColor" />
+	<FontFamily
+		x:Key="ButtonFontFamily">Arial</FontFamily>
+	<system:Double
+		x:Key="ButtonFontSize">12</system:Double>
+	<Cursor
+		x:Key="ButtonCursor">Hand</Cursor>
+	<SolidColorBrush
+		Color="#FF3C5064"
+		x:Key="ButtonBackgroundColor" />
+	<SolidColorBrush
+		Color="#FF3C5064"
+		x:Key="ButtonBackgroundPressedColor" />
+	<CornerRadius
+		x:Key="ButtonCornerRadius">4</CornerRadius>
+	<SolidColorBrush
+		Color="#FF5D7D90"
+		x:Key="ButtonOuterBorderColor" />
+	<SolidColorBrush
+		Color="#FF11171C"
+		x:Key="ButtonOuterBorderPressedColor" />
+	<Thickness
+		x:Key="ButtonOuterBorderThickness">1,1,0,0</Thickness>
+	<SolidColorBrush
+		Color="#FF11171C"
+		x:Key="ButtonInnerBorderColor" />
+	<SolidColorBrush
+		Color="#FF5D7D90"
+		x:Key="ButtonInnerBorderPressedColor" />
+	<Thickness
+		x:Key="ButtonOuterInnerThickness">0,0,1,1</Thickness>
+	<SolidColorBrush
+		Color="#FFC2C2DA"
+		x:Key="PushButtonForegroundColor" />
+	<SolidColorBrush
+		Color="#FF012345"
+		x:Key="PushButtonForegroundHoverColor" />
+	<FontFamily
+		x:Key="PushButtonFontFamily">Arial</FontFamily>
+	<system:Double
+		x:Key="PushButtonFontSize">12</system:Double>
+	<Cursor
+		x:Key="PushButtonCursor">Hand</Cursor>
+	<SolidColorBrush
+		Color="#FF3C5064"
+		x:Key="PushButtonBackgroundColor" />
+	<SolidColorBrush
+		Color="#FF3C5064"
+		x:Key="PushButtonBackgroundPressedColor" />
+	<CornerRadius
+		x:Key="PushButtonCornerRadius">4</CornerRadius>
+	<SolidColorBrush
+		Color="#FF5D7D90"
+		x:Key="PushButtonOuterBorderColor" />
+	<SolidColorBrush
+		Color="#FF11171C"
+		x:Key="PushButtonOuterBorderPressedColor" />
+	<Thickness
+		x:Key="PushButtonOuterBorderThickness">1,1,0,0</Thickness>
+	<Thickness
+		x:Key="PushButtonOuterBorderPressedThickness">1,1,0,0</Thickness>
+	<SolidColorBrush
+		Color="#FF11171C"
+		x:Key="PushButtonInnerBorderColor" />
+	<SolidColorBrush
+		Color="#FF5D7D90"
+		x:Key="PushButtonInnerBorderPressedColor" />
+	<Thickness
+		x:Key="PushButtonInnerBorderThickness">0,0,1,1</Thickness>
+	<Thickness
+		x:Key="PushButtonInnerBorderPressedThickness">0,0,1,1</Thickness>
+	<SolidColorBrush
+		Color="#FFC2C2DA"
+		x:Key="TextBoxForegroundColor" />
+	<SolidColorBrush
+		Color="#FFC2C2DA"
+		x:Key="TextBoxCaretColor" />
+	<SolidColorBrush
+		Color="#FF000000"
+		x:Key="TextBoxSelectionColor" />
+	<FontFamily
+		x:Key="TextBoxFontFamily">Arial</FontFamily>
+	<system:Double
+		x:Key="TextBoxFontSize">12</system:Double>
+	<SolidColorBrush
+		Color="#FF3C5064"
+		x:Key="TextBoxBackgroundColor" />
+	<CornerRadius
+		x:Key="TextBoxCornerRadius">4</CornerRadius>
+	<SolidColorBrush
+		Color="#FF11171C"
+		x:Key="TextBoxOuterBorderColor" />
+	<Thickness
+		x:Key="TextBoxOuterBorderThickness">1,1,0,0</Thickness>
+	<SolidColorBrush
+		Color="#FF5D7D90"
+		x:Key="TextBoxInnerBorderColor" />
+	<Thickness
+		x:Key="TextBoxInnerBorderThickness">0,0,1,1</Thickness>
+	<Cursor
+		x:Key="ComboBoxToggleButtonCursor">Hand</Cursor>
+	<SolidColorBrush
+		Color="#FF3C5064"
+		x:Key="ComboBoxToggleButtonBackgroundColor" />
+	<SolidColorBrush
+		Color="#FF3C5064"
+		x:Key="ComboBoxToggleButtonBackgroundPressedColor" />
+	<CornerRadius
+		x:Key="ComboBoxToggleButtonCornerRadius">4</CornerRadius>
+	<CornerRadius
+		x:Key="ComboBoxToggleButtonDropDownCornerRadius">0,4,4,0</CornerRadius>
+	<SolidColorBrush
+		Color="#FFC2C2DA"
+		x:Key="ComboBoxToggleButtonDropDownPenColor" />
+	<SolidColorBrush
+		Color="#FF012345"
+		x:Key="ComboBoxToggleButtonDropDownPenHoverColor" />
+	<SolidColorBrush
+		Color="#FF5D7D90"
+		x:Key="ComboBoxToggleButtonOuterBorderColor" />
+	<SolidColorBrush
+		Color="#FF11171C"
+		x:Key="ComboBoxToggleButtonOuterBorderPressedColor" />
+	<Thickness
+		x:Key="ComboBoxToggleButtonOuterBorderThickness">1,1,0,0</Thickness>
+	<SolidColorBrush
+		Color="#FF11171C"
+		x:Key="ComboBoxToggleButtonInnerBorderColor" />
+	<SolidColorBrush
+		Color="#FF5D7D90"
+		x:Key="ComboBoxToggleButtonInnerBorderPressedColor" />
+	<Thickness
+		x:Key="ComboBoxToggleButtonInnerBorderThickness">0,0,1,1</Thickness>
+	<SolidColorBrush
+		Color="#FFC2C2DA"
+		x:Key="ComboBoxForegroundColor" />
+	<SolidColorBrush
+		Color="#FF3C5064"
+		x:Key="ComboBoxPopupBackgroundColor" />
+	<CornerRadius
+		x:Key="ComboBoxPopupCornerRadius">0,0,4,4</CornerRadius>
+	<SolidColorBrush
+		Color="#FF5D7D90"
+		x:Key="ComboBoxPopupOuterBorderColor" />
+	<Thickness
+		x:Key="ComboBoxPopupOuterBorderThickness">1,1,0,0</Thickness>
+	<SolidColorBrush
+		Color="#FF11171C"
+		x:Key="ComboBoxPopupInnerBorderColor" />
+	<Thickness
+		x:Key="ComboBoxPopupInnerBorderThickness">0,0,1,1</Thickness>
+	<SolidColorBrush
+		Color="#FFC2C2DA"
+		x:Key="ContextMenuForegroundColor" />
+	<SolidColorBrush
+		Color="#FF324650"
+		x:Key="ContextMenuBackgroundColor" />
+	<SolidColorBrush
+		Color="#FF26515C"
+		x:Key="ContextMenuBackgroundHoverColor" />
+	<SolidColorBrush
+		Color="#FF27373F"
+		x:Key="ContextMenuBorderColor" />
+	<SolidColorBrush
+		Color="#FF6A8FA2"
+		x:Key="ContextMenuSeparatorTopColor" />
+	<Thickness
+		x:Key="ContextMenuSeparatorTopThickness">1</Thickness>
+	<SolidColorBrush
+		Color="#FF11171C"
+		x:Key="ContextMenuSeparatorBottomColor" />
+	<Thickness
+		x:Key="ContextMenuSeparatorBottomThickness">1</Thickness>
+	<SolidColorBrush
+		Color="#FFC2C2DA"
+		x:Key="ContextMenuItemSubItemArrowColor" />
+	<CornerRadius
+		x:Key="ScrollBarThumbCornerRadius">5</CornerRadius>
+	<system:Double
+		x:Key="ScrollBarThumbSize">7</system:Double>
+	<SolidColorBrush
+		Color="#FF212C38"
+		x:Key="ScrollBarThumbColor" />
+	<SolidColorBrush
+		Color="#FF212C38"
+		x:Key="ScrollBarThumbHoverColor" />
+	<SolidColorBrush
+		Color="#FF212C38"
+		x:Key="ScrollBarThumbPressedColor" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="ScrollBarTrackColor" />
+	<ImageSource
+		x:Key="FilterImageSource">/Resources/Images/Transformice/filter.png</ImageSource>
+	<ImageSource
+		x:Key="NotificationImageSource">/Resources/Images/Transformice/notification.png</ImageSource>
+	<ImageSource
+		x:Key="LogImageSource">/Resources/Images/Transformice/log.png</ImageSource>
+	<SolidColorBrush
+		Color="#FF5D7D90"
+		x:Key="ChatWindowGridSplitterLeftColor" />
+	<Thickness
+		x:Key="ChatWindowGridSplitterLeftThickness">0,0,1,0</Thickness>
+	<SolidColorBrush
+		Color="#FF11171C"
+		x:Key="ChatWindowGridSplitterRightColor" />
+	<Thickness
+		x:Key="ChatWindowGridSplitterRightThickness">1,0,0,0</Thickness>
+	<ImageSource
+		x:Key="ChatWindowAddImageSource">/Resources/Images/Transformice/add.png</ImageSource>
+	<ImageSource
+		x:Key="ChatWindowAddHoverImageSource">/Resources/Images/Transformice/add.png</ImageSource>
+	<ImageSource
+		x:Key="ChatWindowAddPressedImageSource">/Resources/Images/Transformice/add.png</ImageSource>
+	<ImageSource
+		x:Key="ChatWindowGearImageSource">/Resources/Images/Transformice/gear.png</ImageSource>
+	<ImageSource
+		x:Key="ChatWindowGearHoverImageSource">/Resources/Images/Transformice/gear.png</ImageSource>
+	<ImageSource
+		x:Key="ChatWindowGearPressedImageSource">/Resources/Images/Transformice/gear.png</ImageSource>
+	<ImageSource
+		x:Key="ChatWindowReopenImageSource">/Resources/Images/Transformice/reopen.png</ImageSource>
+	<ImageSource
+		x:Key="ChatWindowReopenHoverImageSource">/Resources/Images/Transformice/reopen.png</ImageSource>
+	<ImageSource
+		x:Key="ChatWindowReopenPressedImageSource">/Resources/Images/Transformice/reopen.png</ImageSource>
+	<ImageSource
+		x:Key="ChatWindowNoteImageSource">/Resources/Images/Transformice/note.png</ImageSource>
+	<ImageSource
+		x:Key="ChatWindowNoteHoverImageSource">/Resources/Images/Transformice/note.png</ImageSource>
+	<ImageSource
+		x:Key="ChatWindowNotePressedImageSource">/Resources/Images/Transformice/note.png</ImageSource>
+	<SolidColorBrush
+		Color="#FFC2C2DA"
+		x:Key="ChatWindowChatTabForegroundColor" />
+	<Thickness
+		x:Key="ChatWindowChatTabMargin">0,0,0,1</Thickness>
+	<CornerRadius
+		x:Key="ChatWindowChatTabCornerRadius">4</CornerRadius>
+	<CornerRadius
+		x:Key="ChatWindowChatTabInnerCornerRadius">7,4,4,7</CornerRadius>
+	<CornerRadius
+		x:Key="ChatWindowChatTabLastChatCornerRadius">4,0,0,4</CornerRadius>
+	<SolidColorBrush
+		Color="#FF465A6E"
+		x:Key="ChatWindowChatTabBackgroundColor" />
+	<SolidColorBrush
+		Color="#FF303E4C"
+		x:Key="ChatWindowChatTabSelectedBackgroundColor" />
+	<ImageSource
+		x:Key="ChatWindowChatTabMutedImageSource">/Resources/Images/Transformice/mute.png</ImageSource>
+	<SolidColorBrush
+		Color="#FF5D7D90"
+		x:Key="GameSettingsWindowSplitterLeftColor" />
+	<Thickness
+		x:Key="GameSettingsWindowSplitterLeftThickness">0,0,1,0</Thickness>
+	<SolidColorBrush
+		Color="#FF11171C"
+		x:Key="GameSettingsWindowSplitterRightColor" />
+	<Thickness
+		x:Key="GameSettingsWindowSplitterRightThickness">0,0,1,0</Thickness>
+	<SolidColorBrush
+		Color="#FF11171C"
+		x:Key="GameSettingsHeaderOuterBorderColor" />
+	<Thickness
+		x:Key="GameSettingsHeaderOuterBorderThickness">0,0,0,1</Thickness>
+	<SolidColorBrush
+		Color="#FF5D7D90"
+		x:Key="GameSettingsHeaderInnerBorderColor" />
+	<Thickness
+		x:Key="GameSettingsHeaderInnerBorderThickness">0,0,0,1</Thickness>
+	<SolidColorBrush
+		Color="#FF11171C"
+		x:Key="GameSettingsCustomCommandItemOuterBorderColor" />
+	<Thickness
+		x:Key="GameSettingsCustomCommandItemOuterBorderThickness">0,0,0,1</Thickness>
+	<SolidColorBrush
+		Color="#FF5D7D90"
+		x:Key="GameSettingsCustomCommandItemInnerBorderColor" />
+	<Thickness
+		x:Key="GameSettingsCustomCommandItemInnerBorderThickness">0,0,0,1</Thickness>
+	<SolidColorBrush
+		Color="#FFEF6480"
+		x:Key="GameSettingsCustomCommandItemErrorColor" />
+	<SolidColorBrush
+		Color="#FF5D7D90"
+		x:Key="LogWindowSplitterLeftColor" />
+	<Thickness
+		x:Key="LogWindowSplitterLeftThickness">0,0,1,0</Thickness>
+	<SolidColorBrush
+		Color="#FF11171C"
+		x:Key="LogWindowSplitterRightColor" />
+	<Thickness
+		x:Key="LogWindowSplitterRightThickness">0,0,1,0</Thickness>
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="LogWindowListBackgroundColor" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="LogWindowLogsBackgroundColor" />
+	<SolidColorBrush
+		Color="#FF58607A"
+		x:Key="MainWindowActionBarBackgroundColor" />
+	<DropShadowEffect
+		ShadowDepth="1"
+		Color="Black"
+		Opacity="0.7"
+		BlurRadius="1"
+		x:Key="MainWindowIconDropShadow" />
+	<ImageSource
+		x:Key="MainWindowChatIconSelectedImageSource">/Resources/Images/Transformice/chat_selected.png</ImageSource>
+	<ImageSource
+		x:Key="MainWindowChatIconUnselectedImageSource">/Resources/Images/Transformice/chat_unselected.png</ImageSource>
+	<ImageSource
+		x:Key="MainWindowReportIconCheckedImageSource">/Resources/Images/Transformice/report_checked.png</ImageSource>
+	<ImageSource
+		x:Key="MainWindowReportIconUncheckedImageSource">/Resources/Images/Transformice/report_unchecked.png</ImageSource>
+	<ImageSource
+		x:Key="MainWindowProxyIconImageSource">/Resources/Images/Transformice/proxy.png</ImageSource>
+	<ImageSource
+		x:Key="MainWindowScreenshotIconImageSource">/Resources/Images/Transformice/takeSS.png</ImageSource>
+	<ImageSource
+		x:Key="MainWindowGifIconImageSource">/Resources/Images/Transformice/takeGIF.png</ImageSource>
+	<SolidColorBrush
+		Color="#FFE2EAFF"
+		x:Key="MainWindowGifRecordingTextColor" />
+	<SolidColorBrush
+		Color="#FF96BCFF"
+		x:Key="MainWindowUpdateButtonColor" />
+	<SolidColorBrush
+		Color="#FFFF5E5E"
+		x:Key="MainWindowNewVersionTextColor" />
+	<SolidColorBrush
+		Color="#FFB1B7C8"
+		x:Key="MainWindowVersionTextColor" />
+	<SolidColorBrush
+		Color="#22000000"
+		x:Key="ModopwetWindowHeaderBackgroundColor" />
+	<SolidColorBrush
+		Color="Transparent"
+		x:Key="ModopwetWindowReportListBackgroundColor" />
+	<SolidColorBrush
+		Color="#FF009D9D"
+		x:Key="ModopwetWindowHeaderItemForegroundColor" />
+	<SolidColorBrush
+		Color="#FF00C1C1"
+		x:Key="ModopwetWindowHeaderItemForegroundHoverColor" />
+	<SolidColorBrush
+		Color="#FF7272A5"
+		x:Key="ModopwetWindowHeaderItemSeparatorColor" />
+	<SolidColorBrush
+		Color="#FFD3D635"
+		x:Key="ModopwetWindowHeaderItemSelectedColor" />
+	<SolidColorBrush
+		Color="#FFF7F73D"
+		x:Key="ModopwetWindowHeaderItemSelectedHoverColor" />
+	<SolidColorBrush
+		Color="#FF26343F"
+		x:Key="ModopwetNotificationsBorderColor" />
+	<SolidColorBrush
+		Color="#FF26343F"
+		x:Key="ModopwetReportListItemBorderColor" />
+	<SolidColorBrush
+		Color="#1100FF15"
+		x:Key="ModopwetReportLocalBackgroundColor" />
+	<SolidColorBrush
+		Color="#220090FF"
+		x:Key="ModopwetReportSelectedBackgroundColor" />
+	<SolidColorBrush
+		Color="#22FF0000"
+		x:Key="ModopwetReportDeletedBackgroundColor" />
+	<SolidColorBrush
+		Color="#FF7272A5"
+		x:Key="ModopwetReportSanctionForegroundColor" />
+	<SolidColorBrush
+		Color="#FFED67EA"
+		x:Key="ModopwetReportWatchersForegroundColor" />
+	<SolidColorBrush
+		Color="#FFD3D635"
+		x:Key="ModopwetReportNameForegroundColor" />
+	<SolidColorBrush
+		Color="#FF7272A5"
+		x:Key="ModopwetReportCommunityForegroundColor" />
+	<SolidColorBrush
+		Color="#FF7272A5"
+		x:Key="ModopwetReportHoursForegroundColor" />
+	<SolidColorBrush
+		Color="#FF3DA1FF"
+		x:Key="ModopwetReportRoomForegroundColor" />
+	<SolidColorBrush
+		Color="#FF009D9D"
+		x:Key="ModopwetReportTypesForegroundColor" />
+	<SolidColorBrush
+		Color="#FF7272A5"
+		x:Key="ModopwetReportTimesForegroundColor" />
+	<SolidColorBrush
+		Color="#FFE5607B"
+		x:Key="ModopwetReportActionForegroundColor" />
+	<SolidColorBrush
+		Color="#FF6B8B"
+		x:Key="ModopwetReportActionForegroundHoverColor" />
+	<SolidColorBrush
+		Color="#06FFFFFF"
+		x:Key="ModopwetReportDetailsBackgroundColor" />
+	<system:Double
+		x:Key="ModopwetReportDetailsFontSize">11</system:Double>
+	<SolidColorBrush
+		Color="#FF008E8E"
+		x:Key="ModopwetReportDetailsSectionHeaderColor" />
+	<SolidColorBrush
+		Color="#FF6C77C1"
+		x:Key="ModopwetReportDetailsReporterNameColor" />
+	<SolidColorBrush
+		Color="#FF7272A5"
+		x:Key="ModopwetReportDetailsReporterKarmaColor" />
+	<SolidColorBrush
+		Color="#FFC2C2DA"
+		x:Key="ModopwetReportDetailsReporterCommentColor" />
+	<ImageSource
+		x:Key="ModopwetReportRoomLockImageSource">/Resources/Images/Transformice/lock.png</ImageSource>
+	<ImageSource
+		x:Key="ModopwetReportRoomHouseImageSource">/Resources/Images/Transformice/house.png</ImageSource>
+	<SolidColorBrush
+		Color="#FFD8D8D8"
+		x:Key="VPNWindowNameColor" />
+	<SolidColorBrush
+		Color="#FFA7BD2D"
+		x:Key="VPNWindowCountColor" />
+	<SolidColorBrush
+		Color="#FF009D9D"
+		x:Key="VPNWindowCopyCommandColor" />
+	<SolidColorBrush
+		Color="#FF63A9FF"
+		x:Key="VPNWindowLsRoomClearCommandColor" />
+	<SolidColorBrush
+		Color="#FFEF6480"
+		x:Key="VPNWindowDeleteCommandColor" />
+	<SolidColorBrush
+		Color="#FF7D8AE0"
+		x:Key="VPNWindowRoomNameColor" />
+	<SolidColorBrush
+		Color="#FF7E7EBC"
+		x:Key="VPNWindowRoomCountryColor" />
+	<SolidColorBrush
+		Color="#FFED67EA"
+		x:Key="VPNWindowRoomNinjaCommandColor" />
+</ResourceDictionary>

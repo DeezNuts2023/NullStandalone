@@ -1,0 +1,121 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6126E974-59A1-425A-A469-76DCEDE88289}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Transformice</RootNamespace>
+    <AssemblyName>Transformice</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Transformice.ico</ApplicationIcon>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+	<UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="EasyHook" Version="2.7.7097" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Prism.Wpf" Version="9.0.537" />
+    <PackageReference Include="Unity" Version="2.1.505.2" />
+    <PackageReference Include="WindowsAPICodePack-Shell" Version="1.1.1" />
+  </ItemGroup>
+  
+    <ItemGroup>
+    <Resource Include="resources\fonts\aspergit bold italic.otf" />
+    <Resource Include="resources\fonts\aspergit bold.otf" />
+    <Resource Include="resources\fonts\aspergit italic.otf" />
+    <Resource Include="resources\fonts\aspergit light italic.otf" />
+    <Resource Include="resources\fonts\aspergit light.otf" />
+    <Resource Include="resources\fonts\aspergit.otf" />
+    <Resource Include="resources\images\banner_arbitre.png" />
+    <Resource Include="resources\images\banner_fashionsquad.png" />
+    <Resource Include="resources\images\banner_funcorp.png" />
+    <Resource Include="resources\images\banner_luateam.png" />
+    <Resource Include="resources\images\banner_mapcrew.png" />
+    <Resource Include="resources\images\banner_modo.png" />
+    <Resource Include="resources\images\banner_serveur.png" />
+    <Resource Include="resources\images\banner_tribe.png" />
+    <Resource Include="resources\images\banner_whispers.png" />
+    <Resource Include="resources\images\chat.ico" />
+    <Resource Include="resources\images\check.png" />
+    <Resource Include="resources\images\community.png" />
+    <Resource Include="resources\images\dark\add.png" />
+    <Resource Include="resources\images\dark\add_hover.png" />
+    <Resource Include="resources\images\dark\chat_selected.png" />
+    <Resource Include="resources\images\dark\chat_unselected.png" />
+    <Resource Include="resources\images\dark\filter.png" />
+    <Resource Include="resources\images\dark\gear.png" />
+    <Resource Include="resources\images\dark\gear_hover.png" />
+    <Resource Include="resources\images\dark\house.png" />
+    <Resource Include="resources\images\dark\lock.png" />
+    <Resource Include="resources\images\dark\log.png" />
+    <Resource Include="resources\images\dark\mute.png" />
+    <Resource Include="resources\images\dark\note.png" />
+    <Resource Include="resources\images\dark\note_hover.png" />
+    <Resource Include="resources\images\dark\notification.png" />
+    <Resource Include="resources\images\dark\proxy.png" />
+    <Resource Include="resources\images\dark\reopen.png" />
+    <Resource Include="resources\images\dark\reopen_hover.png" />
+    <Resource Include="resources\images\dark\report_checked.png" />
+    <Resource Include="resources\images\dark\report_unchecked.png" />
+    <Resource Include="resources\images\dark\takegif.png" />
+    <Resource Include="resources\images\dark\takess.png" />
+    <Resource Include="resources\images\grid.png" />
+    <Resource Include="resources\images\head.ico" />
+    <Resource Include="resources\images\light\add.png" />
+    <Resource Include="resources\images\light\add_hover.png" />
+    <Resource Include="resources\images\light\chat_selected.png" />
+    <Resource Include="resources\images\light\chat_unselected.png" />
+    <Resource Include="resources\images\light\filter.png" />
+    <Resource Include="resources\images\light\gear.png" />
+    <Resource Include="resources\images\light\gear_hover.png" />
+    <Resource Include="resources\images\light\house.png" />
+    <Resource Include="resources\images\light\lock.png" />
+    <Resource Include="resources\images\light\log.png" />
+    <Resource Include="resources\images\light\mute.png" />
+    <Resource Include="resources\images\light\note.png" />
+    <Resource Include="resources\images\light\note_hover.png" />
+    <Resource Include="resources\images\light\notification.png" />
+    <Resource Include="resources\images\light\proxy.png" />
+    <Resource Include="resources\images\light\reopen.png" />
+    <Resource Include="resources\images\light\reopen_hover.png" />
+    <Resource Include="resources\images\light\report_checked.png" />
+    <Resource Include="resources\images\light\report_unchecked.png" />
+    <Resource Include="resources\images\light\takegif.png" />
+    <Resource Include="resources\images\light\takess.png" />
+    <Resource Include="resources\images\log_icon.ico" />
+    <Resource Include="resources\images\map.png" />
+    <Resource Include="resources\images\menu.png" />
+    <Resource Include="resources\images\mp_icon.ico" />
+    <Resource Include="resources\images\transformice\add.png" />
+    <Resource Include="resources\images\transformice\chat_selected.png" />
+    <Resource Include="resources\images\transformice\chat_unselected.png" />
+    <Resource Include="resources\images\transformice\filter.png" />
+    <Resource Include="resources\images\transformice\gear.png" />
+    <Resource Include="resources\images\transformice\house.png" />
+    <Resource Include="resources\images\transformice\lock.png" />
+    <Resource Include="resources\images\transformice\log.png" />
+    <Resource Include="resources\images\transformice\mute.png" />
+    <Resource Include="resources\images\transformice\note.png" />
+    <Resource Include="resources\images\transformice\notification.png" />
+    <Resource Include="resources\images\transformice\proxy.png" />
+    <Resource Include="resources\images\transformice\reopen.png" />
+    <Resource Include="resources\images\transformice\report_checked.png" />
+    <Resource Include="resources\images\transformice\report_unchecked.png" />
+    <Resource Include="resources\images\transformice\takegif.png" />
+    <Resource Include="resources\images\transformice\takess.png" />
+    <Resource Include="resources\images\x.png" />
+  </ItemGroup>
+
+</Project>
